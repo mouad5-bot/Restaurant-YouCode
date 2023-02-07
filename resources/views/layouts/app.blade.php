@@ -32,7 +32,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto ms-auto ">
                         <li class="nav-item me-4">
-                            <a class="nav-link active" href="#">Home</a>
+                            <a class="nav-link active" href="{{ url('/') }}">Home</a>
                         </li> 
                         <li class="nav-item me-4">
                             <a class="nav-link" href="#">about</a>
@@ -64,7 +64,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('users/profile') }}">
+                                    <a class="dropdown-item" href="{{ route('users/profile' , Auth::user()->id) }}">
                                       Profile
                                     </a>
                                     
