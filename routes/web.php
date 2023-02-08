@@ -21,9 +21,8 @@ Route::get('users/profile/{user}', [UserController::class , 'show'])->name('user
 //     $post = Post::findOrFail($id);
 // });
 
-// Route::resource('posts', PostController::class)->except([
-//     'index',
-// ]);
+Route::get('users/profile/update', [UserController::class, 'update'])->name('users/profile/update');
+Route::post('users/profile/update', [UserController::class, 'update'])->name('users/profile/update');
 
-Route::get('users/profile/{user}',  ['as' => 'users.edit', 'uses' => 'UserController@edit']);
-Route::patch('users/{user}/update',  ['as' => 'users.update', 'uses' => 'UserController@update']);
+// Route::get('users/profile/{user}',  ['as' => 'users.edit', 'uses' => 'UserController@edit']);
+// Route::patch('users/{user}/update',  ['as' => 'users.update', 'uses' => 'UserController@update']);

@@ -21,28 +21,29 @@ class UserController extends Controller
         return view('users.edit', compact('user'));
     }
 
-    public function update(User $user)
+    public function update(User $user, Request $request )
     { 
-        $this->validate(request(), [
+        $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6|confirmed'
         ]);
 
-        $user->name = request('name');
-        $user->email = request('email');
-        $user->password = bcrypt(request('password'));
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = bcrypt($request->input('password'));
 
         $user->save();
 
-        return back();
+        return back()
+            ->with('success', 'bien enregistrer');
     }
 
     
-    public function index()
-    {
-        //
-    }
+    // public function index()
+    // {
+    //     //
+    // }
 
     public function create()
     {

@@ -1,52 +1,14 @@
 @extends('layouts.app')
 
+@section('title')
+  Profile
+@endsection
+
 @section('content')
-{{-- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card m-3">
-                <div class="text-center"> <h1>  <b> My Profile </b> </h1> </div>
-
-                    <form method="POST" action="">
-                        @csrf
-
-                        <div class="form-group m-3">
-                          <label for="name">Name</label>
-                          <input type="name" class="form-control" id="name">
-                        </div>
-
-                        <div class="form-group m-3">
-                          <label for="email">Email address</label>
-                          <input type="email" class="form-control" id="email">
-                        </div>
-
-                        <div class="form-group m-3">
-                            <label for="pswd">Password</label>
-                            <input type="password" class="form-control" id="pswd">
-                          </div>
-
-                          <div class="form-group m-3">
-                            <label for="Cpswd">Comfirm Password</label>
-                            <input type="Cpassword" class="form-control" id="Cpswd">
-                          </div>
-                        
-                        <div class="m-3">
-                            <button type="submit" class="btn btn-primary">Save changes</button>
-                        </div>
-                      </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
-
-
 
 <div class="alert alert-success m-4 text-center" role="alert">
   <h3 > Welcome in you Profile! </h3> 
 </div>
-
-
 
 <div class="container-fluid">
   <div class="row">
@@ -58,10 +20,10 @@
           </h2>
           <hr class="w-25%" />
           <br />
-          <form action="route('users.edit', $user)" method="POST">
+          <form action="{{route('users/profile/update', Auth::user()->id ) }}" method="POST">
             {{-- {{ csrf_field() }} --}}
             @csrf
-            {{ method_field('patch') }}
+            {{-- {{ method_field('patch') }} --}}
 
             <div class="row">
               <div class="col-md-6">
@@ -129,4 +91,5 @@
     </div>
   </div>
 </div>
+
 @endsection
