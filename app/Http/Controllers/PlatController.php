@@ -9,7 +9,8 @@ class PlatController extends Controller
 {
     public function index()
     {
-        return view('plats.plat');
+        $plats = Plat::all();
+        return view('plats.plat', compact('plats'));
     }
 
     public function create()
@@ -27,20 +28,19 @@ class PlatController extends Controller
             'description' => 'required'
         ]);
 
-        $post = new Plat;
+        $plats = new Plat;
 
-        // $img = $request->file('image')->store('public/images/plats');
-        // $img =str_replace("public/images", "storage/images", $img);
+        $img = $request->file('image')->store('public/images/plats');
+        $img =str_replace("public/images", "storage/images", $img);
 
-        $post->name = $request->input('name');
-        $post->price = $request->input('price');
-       // $post->image = $img; //$request->file('image');
-       $post->image = $request->file('image');
-        $post->description = $request->input('description');
+        $plats->name = $request->input('name');
+        $plats->price = $request->input('price');
+       $plats->image = $img; 
+        $plats->description = $request->input('description');
         
-        // dd($post);
+        // dd($plats);
 
-        $post->save();
+        $plats->save();
 
         // return redirect()
         //         ->route('index')
@@ -52,7 +52,7 @@ class PlatController extends Controller
 
     public function show()
     {
-        return view('posts/plat');
+        return view('plats/plat');
     }
 
     

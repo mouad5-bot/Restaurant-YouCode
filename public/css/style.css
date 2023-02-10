@@ -1,15 +1,8 @@
-.nav{
-    background-color: black;
-    color: aqua;
-    display: flex;
+.navbar{
+    background-color: rgb(60, 205, 164)!important;
 }
 
-ul li {
-    margin-left: 1rem;
-    list-style: none;
-    text-decoration: none;
-}
-
-ul li a{
-    text-decoration: none;
+#card-image{
+    height: 3rem;
+    width: 4rem;
 }

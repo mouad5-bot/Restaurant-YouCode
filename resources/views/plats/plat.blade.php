@@ -29,17 +29,15 @@ Restaurant | YouCode
             </thead>
             <tbody>
             <?php
-              $donner = $postData;
-              foreach($donner as $ligne)
+              foreach($plats as $plat)
               {
             ?>
-            
                 <tr>
                     <th scope="row"> 1 </th>
-                    <td>image here</td>
-                    <td>Tacos</td>  
-                    <td>30 DH</td>
-                    <td title="">frite + dande + souce </td>
+                    <td>  <img class="rounded-t-lg" src="{{ asset("$plat->image") }}" alt="plat image" id="card-image" /> </td> 
+                    <td> {{ $plat->name }} </td> 
+                    <td> {{ $plat->price }} DH</td>
+                    <td title=""> {{ $plat->description }} </td>
                     <td class="d-flex">
                         <div class="me-3">
                          <button type="button" onclick="getdataArticl()"
