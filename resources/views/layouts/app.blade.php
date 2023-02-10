@@ -12,6 +12,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" type="text/css" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -33,6 +34,9 @@
                     <ul class="navbar-nav me-auto ms-auto ">
                         <li class="nav-item me-4">
                             <a class="nav-link active" href="{{ url('/') }}">Home</a>
+                        </li> 
+                        <li class="nav-item me-4">
+                            <a class="nav-link" href="{{ route('plats.index') }}">Plat</a>
                         </li> 
                         <li class="nav-item me-4">
                             <a class="nav-link" href="#">about</a>
@@ -89,5 +93,6 @@
             @yield('content')
         </main>
     </div>
+    <script src="{{ asset('js/main.js') }}"></script>
 </body>
 </html>

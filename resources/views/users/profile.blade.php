@@ -80,6 +80,7 @@
                   id="save"
                   name="save_Changes"
                   class="btn btn-primary"
+                  onclick="update()"
                 >
                 Save Changes
                 </button>
