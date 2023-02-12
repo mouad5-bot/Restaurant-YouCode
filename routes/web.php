@@ -26,5 +26,9 @@ Route::get('aboutus/about', function () {
     return view('aboutus.about');
 })->name('aboutus.about');
 
+Route::get('contactus/contact', function () {
+    return view('contactus.contact');
+})->name('contactus.contact');
+
 // Route::get('/plats',  [PlatController::class, 'index'])->name('plats.index');
 // Route::post('/plats', [PlatController::class, 'store'])->name('plats.store');

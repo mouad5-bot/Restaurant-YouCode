@@ -13,6 +13,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link href="{{ asset('assets/css/style.css') }}" type="text/css" rel="stylesheet">
+    <link href="@yield('css')" type="text/css" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -41,7 +42,7 @@
                             <a class="nav-link" href="{{ route('aboutus.about') }}">about</a>
                         </li> 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">contact</a>
+                            <a class="nav-link" href="{{ route('contactus.contact') }}">contact</a>
                         </li> 
                     </ul>
 
