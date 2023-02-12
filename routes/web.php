@@ -20,8 +20,11 @@ Route::get('users/profile/{user}', [UserController::class , 'show'])->name('user
 Route::get('users/profile/update', [UserController::class, 'update'])->name('users/profile/update');
 Route::post('users/profile/update', [UserController::class, 'update'])->name('users/profile/update');
 
-
 Route::resource('plats',  PlatController::class);
+
+Route::get('aboutus/about', function () {
+    return view('aboutus.about');
+})->name('aboutus.about');
 
 // Route::get('/plats',  [PlatController::class, 'index'])->name('plats.index');
 // Route::post('/plats', [PlatController::class, 'store'])->name('plats.store');
