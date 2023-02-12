@@ -46,6 +46,7 @@
                         </li> 
                     </ul>
 
+
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
@@ -89,6 +90,14 @@
             </div>
         </nav>
 
+        @if ($errors->any())
+        <div class="flash-error mt-5 text-center">
+            <h3> There is an error, click on " Add Plat " to check ! </h3>
+            {{-- @foreach ($errors->all() as $error)
+                <p> {{ $error }} </p>
+            @endforeach --}}
+        </div>
+    @endif
         <main class="py-4">
             @yield('content')
         </main>

@@ -12,7 +12,7 @@ Restaurant | YouCode
             <u>List of Plats :</u> 
         </div>
         <div class=" mb-5">
-            <a href="#modal" data-bs-toggle="modal"  class="btn btn-success btn-rounded px-4 rounded-pill">Add Plats</a>
+            <a href="#modal" data-bs-toggle="modal"  class="btn btn-success btn-rounded px-4 rounded-pill">Add Plat</a>
         </div>
     </div>
     <div class="table-responsive">
@@ -33,20 +33,18 @@ Restaurant | YouCode
               {
             ?>
                 <tr>
-                    <th scope="row"> 1 </th>
+                    <th scope="row"> {{ $plat->id }} </th>
                     <td>  <img class="rounded-t-lg" src="{{ asset("$plat->image") }}" alt="plat image" id="card-image" /> </td> 
                     <td> {{ $plat->name }} </td> 
                     <td> {{ $plat->price }} DH</td>
                     <td title=""> {{ $plat->description }} </td>
                     <td class="d-flex">
                         <div class="me-3">
-                         <button type="button" onclick="getdataArticl()"
-                          data-bs-target="#modal-edit-post" data-bs-toggle="modal"
-                          class="btn btn-outline-info">Edit</button>    
+                         <a href="{{ route('plats.edit', [$plat]) }}" type="button" class="btn btn-outline-info">Edit</a>    
                         </div>  
     
                         <div class="">
-                         <a href="#"><button type="button" onclick="deleteArticl()"  class="btn btn-outline-danger">Delete</button></a>
+                         <a href="#"><button type="button" onclick="deletePlat()"  class="btn btn-outline-danger">Delete</button></a>
                         </div>  
                     </td>
                 </tr>
@@ -67,28 +65,49 @@ Restaurant | YouCode
                 <form action="{{ route('plats.store') }}" method="POST" id="form" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-header">
-                        <h5 class="modal-title">Add Articl</h5>
+                        <h5 class="modal-title">Add Plat</h5>
                         <a href="#" class="btn-close" data-bs-dismiss="modal"></a>
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
                             <label class="form-label">name</label>
-                            <input  type="text" class="form-control" name="name" id="name"/>
+                            <input  type="text" class="@error('name') error-border @enderror form-control" name="name" id="name"/>                            
+                            @error('name')
+                                <div class="error">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>            
                         <div class="mb-3">
                             <label class="form-label" >Price</label>
                             <div class="input-group">
                                 <div class="input-group-text">MAD</div>
-                                <input type="number" name="price" class="form-control" id="autoSizingInputGroup">
+                                <input type="number" name="price" class="@error('price') error-border @enderror form-control" id="autoSizingInputGroup">
                             </div>
+                            @error('price')
+                                <div class="error">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+
                         </div>
                         <div class="mb-2">
                             <label class="form-label">image</label> 
-                            <input type="file" class="form-control" id="inputGroupFile04" name="image" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                            <input type="file" class="@error('image') error-border @enderror form-control" id="inputGroupFile04" name="image" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                            @error('image')
+                                <div class="error">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                         <div class="mb-0">
                             <label class="form-label">Description</label>
-                            <textarea class="form-control" rows="5" name="description" id="description"></textarea>
+                            <textarea class="@error('description') error-border @enderror form-control" rows="5" name="description" id="description"></textarea>
+                            @error('description')
+                                <div class="error">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                     
                     </div>
@@ -100,5 +119,5 @@ Restaurant | YouCode
             </div>
         </div>
     </div>
-    
+  
 @endsection 

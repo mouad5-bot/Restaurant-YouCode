@@ -3,6 +3,18 @@
 }
 
 #card-image{
-    height: 3rem;
-    width: 4rem;
+    height: 2rem;
+    width: 3rem;
+}
+
+.error{
+    color: red;
+}
+
+.error-border{
+    border-color: red;
+}
+
+.flash-error{
+    color: red;
 }

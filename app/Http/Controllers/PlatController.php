@@ -35,36 +35,51 @@ class PlatController extends Controller
 
         $plats->name = $request->input('name');
         $plats->price = $request->input('price');
-       $plats->image = $img; 
+        $plats->image = $img; 
         $plats->description = $request->input('description');
         
         // dd($plats);
 
         $plats->save();
 
-        // return redirect()
-        //         ->route('index')
-        //         ->with('success', 'bien enregistrer');
         return back()
         ->with('success', 'bien enregistrer');
 
     }
 
-    public function show()
+    public function show(Plat $plats)
     {
-        return view('plats/plat');
+        return view('plats.plat', [
+            'plat' => $plats,
+        ]);
     }
 
     
     public function edit($id)
     {
-        //
+        return view('plats.edit', [
+            'plat' => Plat::findorFail($id),
+        ]);
     }
 
     public function update(Request $request, $id)
-    {
-        //
-    }
+    { 
+        $plats = Plat::findOrFail($id);        
+        
+        $img = $request->file('image')->store('public/images/plats');
+        $img =str_replace("public/images", "storage/images", $img);
+
+        $plats->name   = $request->input('name');
+        $plats->image  = $img;
+        $plats->price  = $request->input('price');
+        $plats->description = $request->input('description');
+
+        $plats->save();
+
+        return redirect()
+            ->route('plats.index', ['plat' => $plats->id])
+            ->with('success', 'bien modifier');
+    }       
 
     public function destroy($id)
     {
