@@ -43,9 +43,17 @@ Restaurant | YouCode
                          <a href="{{ route('plats.edit', [$plat]) }}" type="button" class="btn btn-outline-info">Edit</a>    
                         </div>  
     
-                        <div class="">
+                        <form method="POST" action="{{ route('plats.destroy', $plat->id) }}">
+                            @csrf
+                            @method('DELETE')   
+                            <div class="">
+                             <button type="submit" onclick="deletePlat()" class="btn btn-outline-danger">Delete</button></a>
+                            </div>  
+                        </form>
+
+                        {{-- <div class="">
                          <a href="#"><button type="button" onclick="deletePlat()"  class="btn btn-outline-danger">Delete</button></a>
-                        </div>  
+                        </div>   --}}
                     </td>
                 </tr>
             <?php

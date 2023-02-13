@@ -92,7 +92,7 @@
 
         @if ($errors->any())
         <div class="flash-error mt-5 text-center">
-            <h3> There is an error, click on " Add Plat " to check ! </h3>
+            <h3> There is an error, please check out ! </h3>
             {{-- @foreach ($errors->all() as $error)
                 <p> {{ $error }} </p>
             @endforeach --}}
@@ -102,6 +102,7 @@
             @yield('content')
         </main>
     </div>
-    {{-- <script src="{{ asset('assets/js/main.js') }}"></script> --}}
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

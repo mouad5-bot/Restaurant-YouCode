@@ -20,7 +20,7 @@ About Us
     </div>
     </div>
     <div class="image-container">
-      <img src="{{ asset('assets/image/bergur.png') }}" alt="restaurant image">
+      <img src="{{ asset('assets/image/bergur.jpg') }}" alt="restaurant image">
     </div>
   </div>
 @endsection 

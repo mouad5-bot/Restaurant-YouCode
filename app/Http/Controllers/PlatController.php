@@ -54,7 +54,6 @@ class PlatController extends Controller
         ]);
     }
 
-    
     public function edit($id)
     {
         return view('plats.edit', [
@@ -64,6 +63,9 @@ class PlatController extends Controller
 
     public function update(Request $request, $id)
     { 
+        $request->validate([
+            'image' => 'required',
+        ]);
         $plats = Plat::findOrFail($id);        
         
         $img = $request->file('image')->store('public/images/plats');
@@ -79,10 +81,15 @@ class PlatController extends Controller
         return redirect()
             ->route('plats.index', ['plat' => $plats->id])
             ->with('success', 'bien modifier');
-    }       
-
+    }      
+    
     public function destroy($id)
     {
-        //
+        $plats = Plat::findOrFail($id); 
+
+        $plats->delete();
+
+        return redirect()
+            ->route('plats.index');
     }
 }

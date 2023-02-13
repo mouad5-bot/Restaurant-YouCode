@@ -28,6 +28,11 @@ Modefy Plat
                         <div class="mb-2">
                             <label class="form-label">image</label> 
                             <input type="file" class="form-control" id="inputGroupFile04" name="image" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                            @error('image')
+                                <div class="error">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                         <div class="mb-0">
                             <label class="form-label">Description</label>
