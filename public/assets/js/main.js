@@ -1,4 +1,4 @@
-function delete_count()
+function deletePlat()
 {   
      Swal.fire({
         title: 'Are you sure?',
@@ -15,7 +15,7 @@ function delete_count()
             'Your file has been deleted.',
             'success'
           )
-          window.location.href="../scripts.php/editepage.script.php?delete_count=true"
+          window.location.href=""
         }
       })
     
