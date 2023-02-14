@@ -27,7 +27,7 @@ Modefy Plat
                         </div>
                         <div class="mb-2">
                             <label class="form-label">image</label> 
-                            <input type="file" class="form-control" id="inputGroupFile04" name="image" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                            <input type="file" class="form-control @error('image') error-border @enderror" id="inputGroupFile04" name="image" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                             @error('image')
                                 <div class="error">
                                     {{ $message }}

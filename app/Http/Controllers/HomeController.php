@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Plat;
+use App\Http\Controllers\PlatController;
 class HomeController extends Controller
 {
     /**
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $plats = Plat::all();
+        return view('home', ['plats'=>$plats]); 
     }
 }
