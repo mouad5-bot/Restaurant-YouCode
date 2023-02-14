@@ -8,6 +8,11 @@ use App\Models\Plat;
 
 class PlatController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $plats = Plat::all();

@@ -9,8 +9,12 @@ use App\Models\User;
 
 
 Auth::routes();
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/', 'index')->name('home');
+    Route::get('/home', 'index')->name('home');
+});
 // Route::get('/posts/plat', function () {
 //     return view('posts.plat');
 // })->name('posts/plat');
