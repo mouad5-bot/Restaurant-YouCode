@@ -33,16 +33,16 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto ms-auto ">
                         <li class="nav-item me-4">
-                            <a class="nav-link active" href="{{ url('/') }}">Home</a>
+                            <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ url('/') }}">Home</a>
                         </li> 
                         <li class="nav-item me-4">
-                            <a class="nav-link" href="{{ route('plats.index') }}">Plat</a>
+                            <a class="nav-link {{ request()->routeIs('plats.index') ? 'active' : '' }}" href="{{ route('plats.index') }}">Plat</a>
                         </li> 
                         <li class="nav-item me-4">
-                            <a class="nav-link" href="{{ route('aboutus.about') }}">about</a>
+                            <a class="nav-link {{ request()->routeIs('aboutus.about') ? 'active' : '' }}" href="{{ route('aboutus.about') }}">about</a>
                         </li> 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('contactus.contact') }}">contact</a>
+                            <a class="nav-link {{ request()->routeIs('contactus.contact') ? 'active' : '' }}" href="{{ route('contactus.contact') }}">contact</a>
                         </li> 
                     </ul>
 

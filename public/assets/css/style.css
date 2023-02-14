@@ -1,5 +1,5 @@
 .navbar{
-    background-color: rgb(60, 205, 164)!important;
+    background-color: #1cc7d0!important;
 }
 
 #card-image{
@@ -12,11 +12,30 @@
 }
 
 .error-border{
-    border-color: red;
+    border: 2px solid red !important;
 }
 
 .flash-error{
     color: red;
+}
+
+
+nav li a:hover:not(.active) {
+    background-color: aqua;
+    color: black;
+    border-radius: 10%;
+  }
+  
+.active {
+    /* background-color: #2dde98; */
+    border-radius: 10%;color: white!important;
+}
+
+/* ************* home ****************** */
+card-img-top{
+    height: 50px;
+    width: 50px;
+    margin: 2rem;
 }
 
 

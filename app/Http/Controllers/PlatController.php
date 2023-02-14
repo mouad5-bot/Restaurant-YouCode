@@ -2,15 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
 use App\Models\Plat;
 
 class PlatController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $plats = Plat::all();
-        return view('plats.plat', compact('plats'));
+        view()->share('plat', $plats);
+        return view('plats.plat',['plats'=> $plats]);
     }
 
     public function create()
